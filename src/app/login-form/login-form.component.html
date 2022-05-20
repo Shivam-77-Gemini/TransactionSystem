@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="row">
+        
+        <form  class="col-lg-6 bg-dark mt-5 border rounded text-center" id="form" name="signin" #signin="ngForm" (ngSubmit)="onSubmit()">
+            <h1 class="text-center text-info mt-3 mb-3">SignIn Form</h1>
+            <div class="form-floating mb-1">
+                <input type="email" class="form-control is-invalid" id="floatingInput" placeholder="name@example.com" required name="email" ngModel #email="ngModel" minlength="11" maxlength="50" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+                <label for="floatingInput">Email address</label>
+            </div>
+            <div *ngIf="email.invalid && (email.dirty || email.touched)" class="text-danger">
+                <small *ngIf="email.errors?.['required']">Please fill your emailid!</small>
+                <small *ngIf="email.errors?.['pattern']">Please use correct emailid!</small>
+                <small *ngIf="email.errors?.['minlength']">Please use atleast 11 characters!</small>
+                <small *ngIf="email.errors?.['maxlength']">You can use atleast 11 characters and atmost 50 characters!</small>
+
+            </div>
+            <div class="form-floating">
+                <input type="password" class="form-control is-invalid" id="floatingPassword" required ngModel name="pass" #pass="ngModel" placeholder="Password" minlength="8" maxlength="20" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$">
+                <label for="floatingPassword">Password</label>
+            </div>
+            <div *ngIf="pass.invalid && (pass.dirty || pass.touched)" class="text-danger">
+                    <small *ngIf="pass.errors?.['required']">Please fill your password!</small>
+                    <small *ngIf="pass.errors?.['pattern']">Please enter your correct password!</small>
+                    <small *ngIf="pass.errors?.['minlength']">Please use atleast 8 characters!</small>
+                    <small *ngIf="pass.errors?.['maxlength']">You can use atleast 8 characters and atmost 20 characters!</small>
+            </div>
+           <button class="btn btn-primary mt-2" routerLink="/transactionScreen" [disabled]="!signin.form.valid">Submit</button>
+            
+        </form>
+        
+    </div>
+</div>
+<router-outlet></router-outlet>

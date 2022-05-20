@@ -1,1 +1,176 @@
-<p>transcations works!</p>
+<div class="container mt-3 text-center"  >
+  
+    <div class="col-12 border border-dark " id="main" style="text-align: center;" >
+      <div class="d-flex justify-content-start" id="upper">
+      <span id="arrow"  class="d-flex align-self-center">&#x2190;</span>
+      <div class="rounded-circle  text-center d-flex justify-content-center align-self-center " id="circle"> 
+        <div style="display:flex;align-items:center;">{{userDetails.firstLetter}}</div>
+      </div>
+      <div class="d-flex justify-conten-start mt-2" style="margin-left: 10px; width: 15px;height: 10px;">
+           
+           {{userDetails.name}}  
+            {{userDetails.contactNo}}
+          
+      </div>
+
+    </div>
+<div *ngFor="let item of transactionDetails;let i=index">
+    <div class="dashed" *ngIf="i===0 || transactionDetails[i].date.toString() !== transactionDetails[i-1].date.toString()" [class.mt-3]="i==0">
+
+        <span>{{item.date | date:'d-MMM-YYYY'}}</span>
+
+    </div>
+ 
+    <!--   Paid Card -->
+    <!-- <ng-container *ngIf="item.transactionStatus==='pay'&&item.transactionMethod==='sent'"> -->
+        <div class="row">
+            <div class="col-6"></div>
+    <div  *ngIf="item.transactionStatus==='pay'&&item.transactionMethod==='sent'" class="w-50" >
+        <div class="card main_card border-dark" style="margin-right:5px;">
+        <table class="cord-body">
+            <tbody>
+                <tr class="mb-2">
+                    <td>
+                        <div style="font-size: 30px; font-weight:bold; margin-left: 10px;" class="d-flex justify-content-start" >&#8377; {{item.amount}}</div>
+                    </td>
+                    <td class="d-flex justify-content-end mt-2" >
+                        <div style="margin-right: 5px;">
+                        <i class="fa fa-check mt-2" aria-hidden="true"></i>&#160;&#160;You {{item.transactionType}}</div>
+                    </td>
+                </tr>
+                <tr >
+                    <td>
+                        <div style="font-size: 12px;  margin-left: 10px;" class="d-flex justify-content-start mb-2" >Transaction Id <br>
+                        {{item.transactionId}}
+                        </div>
+                    </td>
+                    <td>
+                         <i class="fa fa-chevron-right d-flex justify-content-end" aria-hidden="true" style='font-size:18px;color:rgb(20, 20, 20);margin-right: 40px;'></i>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="d-flex justify-content-end" style="font-size:10px;">{{item.date | date:'medium'}}</div>
+</div>
+</div>
+    <!-- </ng-container> -->
+
+
+
+
+    <!----ReQuested Card --->
+<div class="row">
+    <div class="col-6"></div>
+<div *ngIf="item.transactionStatus==='request'&& item.transactionMethod==='collect'" class="w-50 mb-3" >
+    <div class="card main_card border-dark d-flex" style="margin-right: 5px;" >
+        <table class="cord-body">
+            <tbody>
+                <tr class="mb-2">
+                    <td>
+                        <div style="font-size: 30px; font-weight:bold; margin-left: 10px;" class="d-flex justify-content-start" >&#8377; {{item.amount}}</div>
+                    </td>
+                    <td class="d-flex justify-content-end mt-3" >
+                        <div style="margin-right: 5px;">
+                        <i class="fa fa-link mt-2 text-muted" aria-hidden="true"></i>&#160;&#160;You {{item.transactionType}}</div>
+                    </td>
+                </tr>
+                <tr >
+                    <td>
+                        <div style="font-size: 12px;  margin-left: 10px;" class="d-flex justify-content-start mb-2" >
+                            <button type="button" class="btn btn-outline btn-large border border-dark text-dark batan-2" style="margin-left: 5px;">Cancel</button>
+                        
+                        </div>
+                    </td>
+                    <td>
+                         <i class="fa fa-chevron-right d-flex justify-content-end" aria-hidden="true" style='font-size:18px;color:rgb(20, 20, 20);margin-right: 40px;'></i>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        
+    </div>
+    <div class="d-flex justify-content-end" style="font-size:10px;">{{item.date | date:'medium'}}</div>
+    
+</div>
+</div>
+
+
+    <!-- Received Card -->
+    <!-- <ng-container> -->
+        <div class="row">
+            
+        <div *ngIf="item.transactionStatus==='received' && item.transactionMethod==='haveTopay'" class="w-50 mb-3" >
+            <div class="card main_card border-dark mb-2" >
+                <table class="cord-body">
+                    <tbody>
+                        <tr class="mb-2">
+                            <td>
+                                <div style="font-size: 30px; font-weight:bold; margin-left: 10px;" class="d-flex justify-content-start" >&#8377; {{item.amount}}</div>
+                            </td>
+                            <td class="d-flex justify-content-end mt-3" >
+                                <div style="margin-right: 5px;">
+                                <i class="fa fa-check mt-2" aria-hidden="true"></i>&#160;&#160;You {{item.transactionStatus}}</div>
+                            </td>
+                        </tr>
+                        <tr >
+                            <td>
+                                <div style="font-size: 12px;  margin-left: 10px;" class="d-flex justify-content-start mb-2" >Transaction Id <br>
+                                {{item.transactionId}}
+                                </div>
+                            </td>
+                            <td>
+                                <i class="fa fa-chevron-right d-flex justify-content-end" aria-hidden="true" style='font-size:18px;color:rgb(20, 20, 20);margin-right: 40px;'></i>
+                            </td>
+                        </tr>
+                     </tbody>
+                </table>
+            </div>
+            <div class="d-flex justify-content-end" style="font-size:10px;">{{item.date | date:'medium'}}</div>
+</div>
+</div>
+<!-- </ng-container> -->
+
+
+
+
+    <!-- Request Received Card-->
+    <div class="row">
+    <div *ngIf="item.transactionStatus==='collect'&&item.transactionMethod==='pending'" class="w-50">
+    <div class="card main_card border-dark mb-2">
+        <table class="cord-body">
+            <tbody>
+                <tr class="mb-3">
+                    <td>
+                        <div style="font-size: 30px; font-weight:bold; margin-left: 10px;" class="d-flex justify-content-start" >&#8377; {{item.amount}}</div>
+                    </td>
+                    <td class="d-flex justify-content-end mt-3" >
+                        <div style="margin-right: 5px;">
+                        <i class="fa fa-link mt-2 text-muted" aria-hidden="true"></i>&#160;&#160;Request {{item.transactionType}}</div>
+                    </td>
+                </tr>
+                <tr >
+                    <td>
+                        <div style="font-size: 12px;  margin-left: 10px;" class="d-flex justify-content-start mb-2" ><button type="button" class="btn btn-outline border border-dark text-dark">Pay</button>
+                            <button type="button" class="btn btn-outline border border-dark text-dark batan-2" style="margin-left: 5px;">Decline</button>
+                        </div>
+                    </td>
+                    <td>
+                         <i class="fa fa-chevron-right d-flex justify-content-end" aria-hidden="true" style='font-size:18px;color:rgb(20, 20, 20);margin-right: 40px;'></i>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="d-flex justify-content-end" style="font-size:10px;">{{item.date | date:'medium'}}</div>
+</div>
+
+</div>
+</div>
+    <!-- <app-transcations></app-transcations> -->
+ 
+
+</div>
+
+
+

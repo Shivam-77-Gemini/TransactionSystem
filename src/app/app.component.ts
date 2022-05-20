@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import {faCircleCheck } from '@fortawesome/free-solid-svg-icons';
+import { faAngleRight} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'TransactionSystem';
+  // faCicleCheck=faCircleCheck;
+  // faAngleRight=faAngleRight;
+  
 }

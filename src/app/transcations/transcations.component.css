@@ -1,0 +1,76 @@
+#main{
+    
+    width:700px;
+    height:1000px;
+}
+#arrow{
+    font-size: 40px;
+}
+#hr{
+   
+    display: block; 
+    height: 1px;
+    border: 0; 
+    border-top: 1px solid rgb(0, 0, 0);
+    margin: 1em 0; 
+    padding: 0;
+   
+}
+#circle{
+    width: 45px; height:45px;
+    background-color: 
+    #7acfbb;
+}
+#upper{
+    height:70px;
+    border-bottom: 1px solid black;
+}
+.main_card{
+    /* width: 350px; */
+    margin-left: 10px;
+    margin-top:20px;
+}
+.fa{
+    color: green;
+    font-size: 14px;
+    
+}
+.batan-1{
+    width: 60px;
+    
+}
+.batan-2{
+    width: 90px;
+    
+}
+#jay{
+    font-weight: 4px;
+}
+/* hr {
+    border:none;
+    border-top:3px dashed rgb(10, 9, 9);
+    color:rgb(11, 10, 10);
+    background-color:rgb(245, 237, 237);
+    height:3px;
+    font-weight: bold;
+   
+  } */
+  .dashed {
+
+    border-bottom: 2px dotted #000;
+
+    text-align: center;
+
+    height: 14px;
+
+    margin-bottom: 25px;
+
+}
+
+.dashed span {
+
+    background: #fff;
+
+    padding: 0 5px;
+
+}

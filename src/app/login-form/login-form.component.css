@@ -1,0 +1,12 @@
+/* #contain{
+    width:800px;
+    text-align: center;
+} */
+#form{
+    height: 300px;
+    width:400px;
+    align-items: center;
+    float:none;
+    margin:auto;
+    
+}
