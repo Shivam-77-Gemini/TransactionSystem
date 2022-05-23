@@ -8,8 +8,8 @@ export class UseTransactionService {
   constructor( ) { }
   getUserDetails(){
     return{
-      "name":"Shaury Omar",
-      "contact_no":"+916345678788",
+      "name":"Shivam Tiwari",
+      "contact_no":"+916399999999",
       "first_letter":"S"
 
     }
